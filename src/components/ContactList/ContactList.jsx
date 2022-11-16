@@ -11,7 +11,11 @@ const ContactList = props => {
               {name}: {number}
             </p>
 
-            <button className={css.list__btn} type="submit" onClick={() => props.onDeleteContact(id)}>
+            <button
+              className={css.list__btn}
+              type="submit"
+              onClick={() => props.onDeleteContact(id)}
+            >
               Delete
             </button>
           </li>
