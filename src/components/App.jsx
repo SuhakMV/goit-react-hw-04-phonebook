@@ -19,6 +19,10 @@ const App = () => {
   );
   const [filter, setFilter] = useState('');
 
+  useEffect(() => {
+    localStorage.setItem(CONTACTS_KEY, JSON.stringify(contacts));
+  }, [contacts]);
+
   const newContact = ({ name, number }) => {
     const isNameSaved = name.toLowerCase();
     let savedName = false;
@@ -57,10 +61,6 @@ const App = () => {
   const deleteContact = e => {
     setContacts(prevState => prevState.filter(contact => contact.id !== e));
   };
-
-  useEffect(() => {
-    localStorage.setItem(CONTACTS_KEY, JSON.stringify(contacts));
-  }, [contacts]);
 
   return (
     <div className="container">
